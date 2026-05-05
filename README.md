@@ -1,4 +1,4 @@
-# Laboratorio Google Api
+# Proyecto Google Api Rutas
 
 ## Integrantes
 - Ingrid Nina Alessandra Nájera Marakovits — 231088
