@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -19,13 +19,11 @@ const googleProvider = new GoogleAuthProvider()
 
 export default function LoginPage() {
   const navigate  = useNavigate()
-  const location  = useLocation()
   const [showPass, setShowPass] = useState(false)
   const [loading,  setLoading]  = useState(false)
   const [form, setForm] = useState({ email: '', password: '' })
   const [errors, setErrors] = useState({})
 
-  const successMsg = location.state?.message ?? null
 
   const set = (key) => (e) => setForm(f => ({ ...f, [key]: e.target.value }))
 
@@ -92,10 +90,6 @@ export default function LoginPage() {
               Don't have an account?{' '}
               <Link to="/signup">Sign up</Link>
             </p>
-
-            {successMsg && (
-              <div className="auth-info-msg">{successMsg}</div>
-            )}
 
             <form className="auth-form" onSubmit={handleSubmit} noValidate>
 

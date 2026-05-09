@@ -50,7 +50,7 @@ export default function SignUpPage() {
       const cred = await createUserWithEmailAndPassword(auth, form.email, form.password)
       await updateProfile(cred.user, { displayName: `${form.firstName} ${form.lastName}` })
       await sendEmailVerification(cred.user)
-      navigate('/login', { state: { message: 'Account created! Check your email to verify before signing in.' } })
+      navigate('/login')
     } catch (err) {
       const msg = authError(err.code)
       if (msg) setErrors({ submit: msg })
