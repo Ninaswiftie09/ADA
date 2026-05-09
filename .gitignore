@@ -75,3 +75,6 @@ Desktop.ini
 *.tmp
 *.temp
 *.swp
+.memsearch/
+.claude/
+.gitignore
