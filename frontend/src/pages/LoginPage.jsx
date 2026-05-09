@@ -4,7 +4,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  FacebookAuthProvider,
 } from 'firebase/auth'
 import { auth } from '../services/firebase'
 import { authError } from '../utils/authErrors'
@@ -14,11 +13,9 @@ import {
   EyeOpenIcon,
   EyeClosedIcon,
   GoogleIcon,
-  FacebookIcon,
 } from '../components/AuthIcons'
 
-const googleProvider   = new GoogleAuthProvider()
-const facebookProvider = new FacebookAuthProvider()
+const googleProvider = new GoogleAuthProvider()
 
 export default function LoginPage() {
   const navigate  = useNavigate()
@@ -60,19 +57,6 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await signInWithPopup(auth, googleProvider)
-      navigate('/')
-    } catch (err) {
-      const msg = authError(err.code)
-      if (msg) setErrors({ submit: msg })
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleFacebook = async () => {
-    setLoading(true)
-    try {
-      await signInWithPopup(auth, facebookProvider)
       navigate('/')
     } catch (err) {
       const msg = authError(err.code)
@@ -168,9 +152,6 @@ export default function LoginPage() {
               <div className="auth-socials">
                 <button type="button" className="auth-social-btn" onClick={handleGoogle} disabled={loading}>
                   <GoogleIcon /> Continue with Google
-                </button>
-                <button type="button" className="auth-social-btn" onClick={handleFacebook} disabled={loading}>
-                  <FacebookIcon /> Continue with Facebook
                 </button>
               </div>
 

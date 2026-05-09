@@ -22,8 +22,8 @@ const GT_CITIES = [
   { lat: 15.3000, lon: -89.3500 },
 ]
 
-const INITIAL_WAYPOINTS = 4
-const MAX_WAYPOINTS = 6
+const INITIAL_WAYPOINTS = 8
+const MAX_WAYPOINTS = 10
 const LEG_MS = 4000
 
 const CAR_PATH =
