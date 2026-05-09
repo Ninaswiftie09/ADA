@@ -1,0 +1,12 @@
+[project]
+name = "route-optimizer"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "functions-framework>=3.0",
+    "requests>=2.31",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
