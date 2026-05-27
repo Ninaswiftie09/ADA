@@ -1,10 +1,13 @@
 [project]
 name = "route-optimizer"
 version = "0.1.0"
+description = "Cloud Function for route optimization with a genetic algorithm"
 requires-python = ">=3.11"
 dependencies = [
-    "functions-framework>=3.0",
-    "requests>=2.31",
+    "firebase-admin>=6.5.0",
+    "functions-framework>=3.8.0",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
 ]
 
 [build-system]
