@@ -66,6 +66,7 @@ Desktop.ini
 # -------------------------
 .env
 .env.*
+!.env.example
 *.key
 *.pem
 env.yaml
