@@ -13,7 +13,9 @@ from genetic_algorithm import GAConfig, optimize_route as run_ga
 load_dotenv()
 
 if not firebase_admin._apps:
-    firebase_admin.initialize_app()
+    firebase_admin.initialize_app(options={
+        'projectId': os.getenv('FIREBASE_PROJECT_ID'),
+    })
 
 
 def _cors_headers() -> dict[str, str]:
