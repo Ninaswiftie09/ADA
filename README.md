@@ -5,8 +5,8 @@ Aplicación web que calcula la ruta óptima entre hasta 15 destinos usando un al
 **Integrantes**
 - Ingrid Nina Alessandra Nájera Marakovits — 231088
 - Diego Ramírez — 23601
-- Jorge Palacios
-- Wilsón Calderón
+- Jorge Palacios - 231385
+- Wilsón Calderón - 22018
 
 ---
 
