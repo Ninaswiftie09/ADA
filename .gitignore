@@ -68,6 +68,7 @@ Desktop.ini
 .env.*
 *.key
 *.pem
+env.yaml
 
 # -------------------------
 # Local / temp
