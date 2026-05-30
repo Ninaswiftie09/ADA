@@ -63,7 +63,7 @@ export default function SignUpPage() {
     setLoading(true)
     try {
       await signInWithPopup(auth, googleProvider)
-      navigate('/')
+      navigate('/app')
     } catch (err) {
       const msg = authError(err.code)
       if (msg) setErrors({ submit: msg })

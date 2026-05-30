@@ -42,7 +42,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await signInWithEmailAndPassword(auth, form.email, form.password)
-      navigate('/')
+      navigate('/app')
     } catch (err) {
       const msg = authError(err.code)
       if (msg) setErrors({ submit: msg })
@@ -55,7 +55,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await signInWithPopup(auth, googleProvider)
-      navigate('/')
+      navigate('/app')
     } catch (err) {
       const msg = authError(err.code)
       if (msg) setErrors({ submit: msg })
