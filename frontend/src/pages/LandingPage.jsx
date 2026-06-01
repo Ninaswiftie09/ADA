@@ -6,28 +6,28 @@ import MapChart from '../components/MapChart'
 const CAROUSEL_ITEMS = [
   {
     step: '01',
-    title: 'Ingresa tus destinos',
-    description: 'Agrega de 2 a 15 paradas usando la busqueda de Google Maps.',
+    title: 'Enter your destinations',
+    description: 'Add 2 to 15 stops using Google Maps search.',
   },
   {
     step: '02',
-    title: 'Elige ruta abierta o cerrada',
-    description: 'Decide si el recorrido termina en la ultima parada o regresa al origen.',
+    title: 'Choose an open or closed route',
+    description: 'Decide whether the route ends at the last stop or returns to the origin.',
   },
   {
     step: '03',
-    title: 'Calcula la ruta optima',
-    description: 'La Cloud Function consulta distancias y ejecuta el algoritmo genetico.',
+    title: 'Calculate the optimal route',
+    description: 'The Cloud Function checks distances and runs the genetic algorithm.',
   },
   {
     step: '04',
-    title: 'Visualiza el recorrido',
-    description: 'El mapa muestra pines numerados y la ruta trazada para seguir el orden.',
+    title: 'Visualize the route',
+    description: 'The map shows numbered pins and the route path in the optimized order.',
   },
   {
     step: '05',
-    title: 'Revisa la distancia total',
-    description: 'El resultado vuelve al frontend con el orden optimo y los kilometros finales.',
+    title: 'Review the total distance',
+    description: 'The result returns to the frontend with the optimal order and final kilometers.',
   },
 ]
 
