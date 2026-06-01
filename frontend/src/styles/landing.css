@@ -328,14 +328,46 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: var(--secondary);
-  font-size: 0.83rem;
-  font-weight: 500;
   background: linear-gradient(135deg, var(--surface) 0%, #d8eeff 100%);
   text-align: center;
-  padding: 1rem;
+  padding: 2.5rem 4rem;
+  gap: 0.9rem;
+}
+
+.ld-carousel-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid rgba(78, 126, 166, 0.35);
+  background: rgba(242, 246, 249, 0.64);
+  color: var(--secondary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ld-carousel-placeholder h3 {
+  max-width: 19rem;
+  color: var(--contrast);
+  font-family: var(--font);
+  font-size: clamp(1.4rem, 3.2vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.12;
+}
+
+.ld-carousel-placeholder p {
+  max-width: 21rem;
+  color: var(--secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.75;
 }
 
 .ld-carousel-num {
@@ -370,6 +402,36 @@
   transition: background 0.2s, transform 0.2s;
 }
 .ld-carousel-dot--active { background: var(--secondary); transform: scale(1.45); }
+
+.ld-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(78, 126, 166, 0.28);
+  background: rgba(242, 246, 249, 0.82);
+  color: var(--secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.ld-carousel-arrow:hover {
+  background: var(--contrast);
+  color: #F2F6F9;
+}
+
+.ld-carousel-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.ld-carousel-arrow--prev { left: 1rem; }
+.ld-carousel-arrow--next { right: 1rem; }
 
 /* ── Footer ── */
 .ld-footer {
@@ -447,6 +509,16 @@
   .ld-hero-content { padding: 0 1.25rem; }
   .ld-hero-sub { font-size: 0.95rem; }
   .ld-scroll-copy { padding: 1.75rem; }
+  .ld-carousel-item { aspect-ratio: 1/1.08; }
+  .ld-carousel-placeholder { padding: 2rem 3.25rem; }
+  .ld-carousel-placeholder h3 { font-size: 1.5rem; }
+  .ld-carousel-placeholder p { font-size: 0.86rem; }
+  .ld-carousel-arrow {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+  .ld-carousel-arrow--prev { left: 0.7rem; }
+  .ld-carousel-arrow--next { right: 0.7rem; }
   .ld-footer-top { flex-direction: column; gap: 1.5rem; }
   .ld-footer-inner { padding: 2rem 1.25rem 1.5rem; }
   .ld-divider-inner { padding: 0 1.25rem; }
@@ -456,5 +528,6 @@
   .ld-carousel-track { transition: none; }
   .ld-carousel-item img { transition: none; }
   .ld-carousel-dot { transition: none; }
+  .ld-carousel-arrow { transition: none; }
   .ld-btn-primary, .ld-btn-ghost, .ld-nav-cta { transition: none; }
 }

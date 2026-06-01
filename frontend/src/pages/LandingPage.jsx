@@ -1,12 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import '../styles/landing.css'
 import MapChart from '../components/MapChart'
 
 const CAROUSEL_ITEMS = [
-  { alt: 'Feature or photo one' },
-  { alt: 'Feature or photo two' },
-  { alt: 'Feature or photo three' },
+  {
+    step: '01',
+    title: 'Ingresa tus destinos',
+    description: 'Agrega de 2 a 15 paradas usando la busqueda de Google Maps.',
+  },
+  {
+    step: '02',
+    title: 'Elige ruta abierta o cerrada',
+    description: 'Decide si el recorrido termina en la ultima parada o regresa al origen.',
+  },
+  {
+    step: '03',
+    title: 'Calcula la ruta optima',
+    description: 'La Cloud Function consulta distancias y ejecuta el algoritmo genetico.',
+  },
+  {
+    step: '04',
+    title: 'Visualiza el recorrido',
+    description: 'El mapa muestra pines numerados y la ruta trazada para seguir el orden.',
+  },
+  {
+    step: '05',
+    title: 'Revisa la distancia total',
+    description: 'El resultado vuelve al frontend con el orden optimo y los kilometros finales.',
+  },
 ]
 
 function LandingNav() {
@@ -92,14 +114,13 @@ function HorizontalCarousel() {
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    snapTo(0)
     const tick = setInterval(() => {
       if (!pausedRef.current) snapTo((idxRef.current + 1) % N)
     }, 3800)
     const onResize = () => snapTo(idxRef.current)
     window.addEventListener('resize', onResize)
     return () => { clearInterval(tick); window.removeEventListener('resize', onResize) }
-  }, [])
+  }, [N])
 
   const goTo = (idx) => {
     idxRef.current = idx
@@ -109,6 +130,9 @@ function HorizontalCarousel() {
     if (!item) return
     track.style.transform = `translateX(${-item.offsetLeft}px)`
   }
+
+  const goPrev = () => goTo((idxRef.current - 1 + N) % N)
+  const goNext = () => goTo((idxRef.current + 1) % N)
 
   return (
     <section className="ld-scroll-section" aria-label="Feature gallery">
@@ -139,13 +163,39 @@ function HorizontalCarousel() {
                 key={i}
                 className={`ld-carousel-item${i === activeIdx ? ' ld-carousel-item--active' : ''}`}
               >
-                <div className="ld-carousel-placeholder">{item.alt}</div>
+                <div className="ld-carousel-placeholder">
+                  <span className="ld-carousel-step">{item.step}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
                 <figcaption className="ld-carousel-num">
-                  {String(activeIdx + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
+                  {String(i + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
                 </figcaption>
               </figure>
             ))}
           </div>
+
+          <button
+            type="button"
+            className="ld-carousel-arrow ld-carousel-arrow--prev"
+            onClick={goPrev}
+            aria-label="Previous slide"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            className="ld-carousel-arrow ld-carousel-arrow--next"
+            onClick={goNext}
+            aria-label="Next slide"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
 
           <div className="ld-carousel-dots" role="tablist" aria-label="Gallery navigation">
             {CAROUSEL_ITEMS.map((_, i) => (
