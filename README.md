@@ -257,4 +257,4 @@ El algoritmo resuelve una variante del Travelling Salesman Problem (TSP):
 - **Criterio de parada**: número fijo de generaciones (configurable)
 - **Modos**: ruta cerrada (regresa al origen) y ruta abierta (termina en el último destino)
 
-Parámetros por defecto: 120 individuos, 400 generaciones, tasa de mutación 0.08.
+Parámetros por defecto: 120 individuos, 400 generaciones, tasa de mutación 0.08 
